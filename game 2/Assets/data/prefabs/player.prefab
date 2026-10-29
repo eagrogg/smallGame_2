@@ -62,6 +62,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2908311048064735173}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2481004048181928171}
   m_SourcePrefab: {fileID: 100100000, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
 --- !u!1 &4909133049610806838 stripped
 GameObject:
@@ -80,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0d460f95d76fa49bb50206ebc841bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  characterController: {fileID: 0}
 --- !u!114 &2908311048064735173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,3 +96,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1dd915399186f949aa1b42cf60cd1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLocomotion
+  verticalMovement: 0
+  horizontalMovement: 0
+  moveAmount: 0
+  walkSpeed: 2
+  runSpeed: 5
+  rotationSpeed: 15
+--- !u!143 &2481004048181928171
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909133049610806838}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.75
+  m_Radius: 0.23
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.02
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
