@@ -8,6 +8,8 @@ public class PlayerManager : CharacterManager
     {
         base.Awake();
 
+        PlayerCamera.instance.player = this;
+
         playerLocomotion = GetComponent<PlayerLocomotion>();
     }
 
@@ -16,5 +18,12 @@ public class PlayerManager : CharacterManager
         base.Update();
 
         playerLocomotion.HandleMovement();
+    }
+
+    protected override void LateUpdate()
+    {
+        base.LateUpdate();
+
+        PlayerCamera.instance.HandleCameraActions();
     }
 }
