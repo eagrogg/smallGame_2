@@ -305,6 +305,9 @@ PrefabInstance:
       addedObject: {fileID: -5511018489424746579}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2260145239697592882}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2908311048064735173}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
       insertIndex: -1
@@ -312,6 +315,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4499070458177376200}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5989377003449260818}
   m_SourcePrefab: {fileID: 100100000, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
 --- !u!1 &4909133049610806838 stripped
 GameObject:
@@ -331,6 +337,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
   characterController: {fileID: 0}
+--- !u!95 &2260145239697592882
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909133049610806838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 1d8f914d093006d47b391bff5d90fc19, type: 3}
+  m_Controller: {fileID: 9100000, guid: 61aed676d57ef0b4290265ab621d01ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2908311048064735173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,3 +429,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5989377003449260818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909133049610806838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ca51e32cc98074f8a22df02031b70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimatorManager

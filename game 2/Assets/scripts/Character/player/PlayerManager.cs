@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class PlayerManager : CharacterManager
 {
-    PlayerLocomotion playerLocomotion;
+    [HideInInspector]public PlayerLocomotion playerLocomotion;
+    [HideInInspector]public PlayerAnimatorManager playerAnimatorManager;
 
     protected override void Awake()
     {
         base.Awake();
 
         PlayerCamera.instance.player = this;
+        PlayerInputManager.instance.player = this;
 
         playerLocomotion = GetComponent<PlayerLocomotion>();
+        playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
     }
 
     protected override void Update()
