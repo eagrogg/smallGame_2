@@ -114,6 +114,16 @@
                     "id": "53c1b792-476e-418a-a40e-2f0c5138bfa9",
                     "expectedControlType": "",
                     "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "11f89748-d45a-4abb-b4a5-56b19d6989a9",
+                    "expectedControlType": "",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
@@ -128,6 +138,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42306cf8-f3b8-45cc-805b-f48f08cdadf6",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

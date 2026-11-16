@@ -10,6 +10,7 @@ public class CharacterManager : MonoBehaviour
     public bool canMove = true;
     public bool isPerformingAction = false;
     public bool applyRootMotion = false;
+    
 
     protected virtual void Awake()
     {

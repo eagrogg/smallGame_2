@@ -7,14 +7,16 @@ public class PlayerLocomotion : CharacterLocomotion
     [HideInInspector] public float verticalMovement;
     [HideInInspector] public float horizontalMovement;
     [HideInInspector] public float moveAmount;
+    [HideInInspector] public bool isSprinting = false;
 
     [Header("Movement Settings")]
     private Vector3 moveDirection;
     private Vector3 targetRotationDir;
     [SerializeField] float walkSpeed = 2;
     [SerializeField] float runSpeed = 5;
+    [SerializeField] float sprintSpeed = 20;
     [SerializeField] float rotationSpeed = 15;
-
+    
     [Header("Dodge")]
     private Vector3 rollDirection;
 
@@ -51,15 +53,22 @@ public class PlayerLocomotion : CharacterLocomotion
         moveDirection.y = 0;
         moveDirection.Normalize();
 
-        if (PlayerInputManager.instance.moveAmount > 0.5f)
+        if (isSprinting)
         {
-            //run
-            player.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+            player.characterController.Move(moveDirection * sprintSpeed * Time.deltaTime);
         }
-        else if (PlayerInputManager.instance.moveAmount <= 0.5f)
+        else
         {
-            //walk
-            player.characterController.Move(moveDirection * walkSpeed * Time.deltaTime);
+            if (PlayerInputManager.instance.moveAmount > 0.5f)
+            {
+                //run
+                player.characterController.Move(moveDirection * runSpeed * Time.deltaTime);
+            }
+            else if (PlayerInputManager.instance.moveAmount <= 0.5f)
+            {
+                //walk
+                player.characterController.Move(moveDirection * walkSpeed * Time.deltaTime);
+            }
         }
     }
 
@@ -83,6 +92,17 @@ public class PlayerLocomotion : CharacterLocomotion
         Quaternion newRotation = Quaternion.LookRotation(targetRotationDir);
         Quaternion targetRotation = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
         transform.rotation = targetRotation;
+    }
+
+    public void HandleSprinting(bool sprintHeld)
+    {
+        if (!sprintHeld || player.isPerformingAction)
+        {
+            isSprinting = false;
+            return;
+        }
+
+        isSprinting = PlayerInputManager.instance.moveAmount >= 0.5f;
     }
 
     public void AttemptToPerformDodge()

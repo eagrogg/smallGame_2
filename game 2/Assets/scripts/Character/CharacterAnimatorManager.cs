@@ -4,15 +4,26 @@ public class CharacterAnimatorManager : MonoBehaviour
 {
     CharacterManager character;
 
+    float vertical;
+    float horizontal;
+
     protected virtual void Awake()
     {
         character = GetComponent<CharacterManager>();
     }
 
-    public void UpdateAnimatorMovementParameters(float horizontalValue, float verticalValue)
+    public void UpdateAnimatorMovementParameters(float horizontalValue, float verticalValue, bool isSprinting)
     {
-        character.animator.SetFloat("Horizontal", horizontalValue, 0.1f, Time.deltaTime);
-        character.animator.SetFloat("Vertical", verticalValue, 0.1f, Time.deltaTime);
+        float horizontalAmount = horizontalValue;
+        float verticalAmount = verticalValue;
+
+        if (isSprinting)
+        {
+            verticalAmount = 2;
+        }
+
+        character.animator.SetFloat("Horizontal", horizontalAmount, 0.1f, Time.deltaTime);
+        character.animator.SetFloat("Vertical", verticalAmount, 0.1f, Time.deltaTime);
     }
 
     public virtual void PlayTargetActionAnimation(

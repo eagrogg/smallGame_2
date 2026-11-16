@@ -24,7 +24,7 @@ public class PlayerInputManager : MonoBehaviour
 
     [Header("Player Actions")]
     [SerializeField] bool dodgeInput = false;
-
+    [SerializeField] bool sprintInput = false;
     private void Awake()
     {
         if (instance == null)
@@ -69,6 +69,8 @@ public class PlayerInputManager : MonoBehaviour
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
             playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
+            
+            
         }
 
         playerControls.Enable();
@@ -89,6 +91,7 @@ public class PlayerInputManager : MonoBehaviour
         HandleMovementInput();
         HandleCameraMovementInput();
         HandleDodgeInput();
+        HandleSprinting();
     }
 
     // Movement
@@ -116,7 +119,7 @@ public class PlayerInputManager : MonoBehaviour
         
 
         //horizontal value is zero because the player doesn't strafe unless locked on
-        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount);
+        player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount, player.playerLocomotion.isSprinting);
     }
 
     private void HandleCameraMovementInput()
@@ -125,7 +128,7 @@ public class PlayerInputManager : MonoBehaviour
         cameraHorizontalInput = cameraInput.x;
     }
 
-    // Action
+    // Actions
 
     private void HandleDodgeInput()
     {
@@ -135,5 +138,11 @@ public class PlayerInputManager : MonoBehaviour
 
             player.playerLocomotion.AttemptToPerformDodge();
         }
+    }
+
+    private void HandleSprinting()
+    {
+        sprintInput = playerControls.PlayerActions.Sprint.IsPressed();
+        player.playerLocomotion.HandleSprinting(sprintInput);
     }
 }
